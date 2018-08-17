@@ -11,11 +11,8 @@ import java.util.concurrent.CompletableFuture;
 public class Publicador {
     ApplicationContext applicationContext = new AnnotationConfigApplicationContext(RabbitConf.class);
     RabbitTemplate rabbitTemplate = applicationContext.getBean(RabbitTemplate.class);
+
     public void publicarMensaje(String exchange, String routingKey, String message){
         rabbitTemplate.convertAndSend(exchange, routingKey, message);
     }
-    public void publicarMensajeAsync(String exchange, String routingKey, String message){
-        CompletableFuture.runAsync(() -> rabbitTemplate.convertAndSend(exchange, routingKey, message));
-    }
-
 }
