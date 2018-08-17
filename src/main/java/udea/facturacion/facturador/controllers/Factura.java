@@ -8,8 +8,9 @@ import udea.facturacion.facturador.modelo.DtoInv;
 import udea.facturacion.facturador.modelo.DtoSap;
 
 public class Factura {
-    Publicador publicador = new Publicador();
-    public void crear(String message){
+    private static Publicador publicador = new Publicador();
+
+    public static void crear(String message){
 
         Gson gson = new Gson();
         DtoFactura factura= gson.fromJson(message, DtoFactura.class);
