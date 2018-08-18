@@ -36,4 +36,13 @@ public class DtoSap {
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
+
+    @Override
+    public String toString() {
+        return "DtoSap{" +
+                "numeroFactura=" + numeroFactura +
+                ", valorTotal=" + valorTotal +
+                ", idCliente=" + idCliente +
+                '}';
+    }
 }
