@@ -15,4 +15,8 @@ public class Publicador {
     public void publicarMensaje(String exchange, String routingKey, String message){
         rabbitTemplate.convertAndSend(exchange, routingKey, message);
     }
+
+    public void publicarMensajeAsync(String exchange, String routingKey, String message){
+        CompletableFuture.runAsync(() -> rabbitTemplate.convertAndSend(exchange, routingKey, message));
+    }
 }
